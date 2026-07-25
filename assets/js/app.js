@@ -24,14 +24,29 @@ var footerRoot = document.getElementById('footer-root');
 function loadHTML(path, container) {
   return fetch(path)
     .then(function(res) {
-      if (!res.ok) throw new Error('Erreur chargement : ' + path);
+      if (!res.ok) throw new Error('HTTP ' + res.status + ' — ' + path);
       return res.text();
     })
     .then(function(html) {
       var tmp = document.createElement('div');
       tmp.innerHTML = html.trim();
-      container.appendChild(tmp.firstElementChild);
+      var node = tmp.firstElementChild;
+      if (!node) throw new Error('Contenu vide ou invalide — ' + path);
+      container.appendChild(node);
     });
+}
+
+// Affiche un message d'erreur lisible dans #app si un fetch échoue
+function showLoadError(err) {
+  console.error('[TDV] Chargement échoué :', err);
+  if (app && app.children.length === 0) {
+    var box = document.createElement('div');
+    box.style.cssText = 'max-width:640px;margin:120px auto;padding:0 24px;font-family:system-ui,sans-serif;color:#94a3b8;text-align:center';
+    box.innerHTML = '<h1 style="color:#f8fafc;font-size:1.6rem;margin-bottom:1rem">Contenu indisponible</h1>'
+      + '<p>Une erreur est survenue au chargement des sections (' + (err && err.message ? err.message : err) + ').</p>'
+      + '<p style="margin-top:1rem"><a href="mailto:tchidehoudodjivirgile@gmail.com" style="color:#00f0ff">Contactez-moi</a></p>';
+    app.appendChild(box);
+  }
 }
 
 // Charge toutes les sections en séquence, puis initialise
@@ -43,9 +58,7 @@ function loadAll() {
   chain = chain.then(function() {
     return loadHTML('sections/footer/footer.html', footerRoot);
   });
-  chain.then(init).catch(function(err) {
-    console.error('Chargement échoué :', err);
-  });
+  chain.then(init).catch(showLoadError);
 }
 
 loadAll();
