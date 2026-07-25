@@ -1094,13 +1094,19 @@ section { padding: 100px 0; position: relative; }
 }
 
 @media (max-width: 768px) {
-  .roadmap-spine { left: 18px; }
-  .roadmap-node { left: 18px; flex-direction: row; transform: none; }
-  .roadmap-step.left, .roadmap-step.right { justify-content: flex-end; }
-  .roadmap-card { width: calc(100% - 56px); }
+  .roadmap-track { max-width: 100%; }
+  .roadmap-spine { left: 14px; transform: none; }
+  .roadmap-node { left: 14px; transform: none; flex-direction: row; gap: 8px; }
+  .roadmap-step { justify-content: flex-start !important; margin-bottom: 2.5rem; }
+  .roadmap-step.left, .roadmap-step.right { justify-content: flex-start; }
+  .roadmap-card {
+    width: calc(100% - 44px);
+    margin-left: 44px;
+    transform: none !important;
+    padding: 1.15rem 1.25rem;
+  }
   .roadmap-step.left .roadmap-card,
-  .roadmap-step.right .roadmap-card { transform: translateX(28px); }
-  .roadmap-step.visible .roadmap-card { transform: none; }
+  .roadmap-step.right .roadmap-card { transform: none !important; }
 }
 
 /* ─── CONTACT ────────────────────────────────────────────── */
@@ -1265,6 +1271,9 @@ section { padding: 100px 0; position: relative; }
   .orb-3 { left: -4%; }
   .orb-5 { right: -6%; }
   .hero-scroll { display: none; }
+  /* Hero CTA : meme ligne */
+  .btn-group { flex-wrap: nowrap; gap: 10px; }
+  .btn-group .btn { flex: 1 1 0; justify-content: center; min-width: 0; padding-inline: 10px; font-size: 0.85rem; }
   .navbar { min-width: 0; width: calc(100% - 32px); border-radius: 32px; top: 16px; }
   .nav-inner { padding: 12px 16px 12px 20px; }
   .nav-links {
@@ -1279,8 +1288,10 @@ section { padding: 100px 0; position: relative; }
   .nav-cta { margin: 0; }
   .nav-toggle { display: block; z-index: 101; }
   .hero-main { padding: 40px 24px; }
-  .footer-bento { grid-template-columns: 1fr; }
-  .footer-cta { padding: 32px 24px; }
+  /* Footer : CTA pleine largeur, nav + connexions cote a cote */
+  .footer-bento { grid-template-columns: 1fr 1fr; }
+  .footer-cta { grid-column: 1 / -1; padding: 32px 24px; }
+  .footer-nav-card, .footer-social-card { padding: 24px; }
   .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
   .about-modern-grid { grid-template-columns: 1fr; }
   .contact-shell { padding: 1.5rem; }
