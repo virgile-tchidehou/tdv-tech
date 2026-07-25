@@ -1093,7 +1093,7 @@ section { padding: 100px 0; position: relative; }
   border: 1px solid var(--glass-border); padding: 3px 8px; border-radius: 4px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .roadmap-track { max-width: 100%; }
   .roadmap-spine { left: 14px; transform: none; }
   .roadmap-node { left: 14px; transform: none; flex-direction: row; gap: 8px; }
@@ -1263,7 +1263,7 @@ section { padding: 100px 0; position: relative; }
   .profile-img { object-position: center 18%; }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   section { padding: 60px 0; }
   .hero-visual { width: 240px; height: 240px; }
   .orb { font-size: 0.66rem; padding: 6px 10px; }
