@@ -178,14 +178,17 @@ Implemented or planned features include:
 # 🗺️ Roadmap
 
 - [x] Repository initialization
-- [ ] Hero section redesign
-- [ ] About section
-- [ ] Featured projects
-- [ ] Skills section
-- [ ] Experience timeline
-- [ ] Contact form
+- [x] Hero section redesign
+- [x] About section
+- [x] Featured projects (with project thumbnails)
+- [x] Skills section (architecture stack marquee)
+- [x] Experience timeline
+- [x] Education section
+- [x] Engineering timeline
+- [x] Contact section (email, GitHub, LinkedIn, phone)
+- [x] Footer with CTA + social
 - [ ] Dark/Light theme support (optional)
-- [ ] SEO optimization
+- [ ] SEO optimization (robots.txt, sitemap.xml, JSON-LD)
 - [ ] Lighthouse score > 95
 
 ---

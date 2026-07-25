@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tdv-tech.vercel.app/sitemap.xml
