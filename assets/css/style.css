@@ -1290,15 +1290,26 @@ section { padding: 100px 0; position: relative; }
   .project-thumb { height: 180px; }
 }
 
-/* ─── Reduced motion (global) ──────────────────────────── */
+/* ─── Reduced motion (ciblé, pas global) ──────────────── */
+/* On coupe seulement les animations décoratives/disorientantes
+   (orbites, anneaux qui tournent, pulses, scan, spine qui se dessine),
+   mais on GARDE les reveals au scroll et le typing (entrances douces). */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
+  .avatar-ring,
+  .orb,
+  .frame-ring,
+  .frame-orbit,
+  .frame-scan,
+  .frame-signals i,
+  .contact-prompt .caret,
+  .hero-badge .dot-live,
+  .typed-cursor,
+  .scroll-dot,
+  .roadmap-track .roadmap-spine-fill {
+    animation: none !important;
   }
   .roadmap-track .roadmap-spine-fill { height: 100% !important; }
   .roadmap-step .roadmap-dot { transform: none !important; opacity: 1 !important; }
   .roadmap-step .roadmap-card { opacity: 1 !important; transform: none !important; }
+  html { scroll-behavior: auto !important; }
 }

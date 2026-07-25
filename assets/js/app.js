@@ -152,13 +152,11 @@ function init() {
   initContactPrompt();
 }
 
-/* Contact — prompt terminal en typing (vanilla, a11y-aware). */
+/* Contact — prompt terminal en typing (vanilla). */
 function initContactPrompt() {
   var el = document.getElementById('contactPrompt');
   if (!el) return;
   var text = "$ connect --with virgile --status open";
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduce) { el.textContent = text; return; }
   var i = 0;
   function tick() {
     el.textContent = text.slice(0, i);
@@ -200,7 +198,7 @@ function initRoadmap() {
   steps.forEach(function(s) { obs.observe(s); });
 }
 
-/* Typing effect for hero role — vanilla, no deps, a11y-aware */
+/* Typing effect for hero role — vanilla, no deps */
 function initHeroType() {
   var el = document.querySelector('.hero-typed');
   if (!el) return;
@@ -208,10 +206,6 @@ function initHeroType() {
   try { words = JSON.parse(el.getAttribute('data-words') || '[]'); }
   catch (e) { words = []; }
   if (!words.length) return;
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    el.textContent = words[0];
-    return;
-  }
   var i = 0, char = 0, deleting = false;
   (function tick() {
     var full = words[i];
