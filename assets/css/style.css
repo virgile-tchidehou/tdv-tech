@@ -1100,9 +1100,9 @@ section { padding: 100px 0; position: relative; }
   .roadmap-step {
     display: flex;
     align-items: flex-start;
-    gap: 14px;
+    gap: 12px;
     justify-content: flex-start !important;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
   }
   .roadmap-step.left, .roadmap-step.right { justify-content: flex-start; }
   .roadmap-node {
@@ -1110,22 +1110,21 @@ section { padding: 100px 0; position: relative; }
     transform: none;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     flex-shrink: 0;
-    width: 18px;
+    width: 58px;
   }
   .roadmap-year {
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    font-size: 0.6rem;
-    letter-spacing: 0;
-    padding: 0;
-    border: none;
-    background: none;
-    white-space: normal;
-    max-height: 64px;
-    line-height: 1.1;
+    writing-mode: horizontal-tb;
+    font-size: 0.7rem;
+    letter-spacing: 0.02em;
+    padding: 3px 8px;
+    border: 1px solid var(--glass-border);
+    background: var(--bg);
+    border-radius: 6px;
+    white-space: nowrap;
     text-align: center;
+    line-height: 1.2;
   }
   .roadmap-card {
     width: 100%;
@@ -1299,9 +1298,9 @@ section { padding: 100px 0; position: relative; }
   .orb-3 { left: -4%; }
   .orb-5 { right: -6%; }
   .hero-scroll { display: none; }
-  /* Hero CTA : meme ligne */
+  /* Hero CTA : meme ligne, texte sur une ligne */
   .btn-group { flex-wrap: nowrap; gap: 10px; }
-  .btn-group .btn { flex: 1 1 0; justify-content: center; min-width: 0; padding-inline: 10px; font-size: 0.85rem; }
+  .btn-group .btn { flex: 1 1 auto; justify-content: center; min-width: 0; white-space: nowrap; padding-inline: 10px; font-size: 0.75rem; }
   .navbar { min-width: 0; width: calc(100% - 32px); border-radius: 32px; top: 16px; }
   .nav-inner { padding: 10px 14px 10px 20px; gap: 0.5rem; }
   .nav-cta { display: none; }
